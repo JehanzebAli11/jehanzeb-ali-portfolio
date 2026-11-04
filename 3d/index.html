@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jehanzeb Ali in 3D, an experiment</title>
+<meta name="description" content="An experimental 3D version of Jehanzeb Ali's portfolio: fly across floating islands, one for each chapter from Unreal at uni to AI firewalls.">
+<meta name="theme-color" content="#14110e">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/sofia-sans-extra-condensed-latin-200-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
+</head>
+<body>
+
+<canvas class="world" aria-hidden="true"></canvas>
+
+<div class="loader" data-loader>
+  <p class="loader__title">Raising the islands</p>
+  <div class="loader__bar"><span data-loader-bar></span></div>
+</div>
+
+<header class="hud">
+  <a class="wordmark" href="#ch-0">Jehanzeb Ali <small>3D</small></a>
+  <nav aria-label="Main">
+    <a class="ghost" href="../">Classic site</a>
+    <a class="btn" href="mailto:jehanzebali111@gmail.com">Email</a>
+  </nav>
+</header>
+
+<nav class="dots" aria-label="Chapters" data-dots></nav>
+
+<p class="hint" data-hint aria-hidden="true">Scroll to fly · Click anything that floats</p>
+
+<main>
+  <section class="ch" id="ch-0" data-label="Start">
+    <div class="card card--hero">
+      <p class="kicker">Game developer and AI engineer · Karachi</p>
+      <h1>Seven years,<br>six islands</h1>
+      <p class="lead">From Unreal at uni to AI firewalls. Scroll to fly between them, click the props and screens.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="ch-1" data-label="2017">
+    <div class="card">
+      <h2><span class="year">2017</span>Unreal at Staffordshire</h2>
+      <p class="lead">Six games for my BSc, solo and in teams of up to 19. Each card circling the cabinet is one of them.</p>
+      <ul class="chips">
+        <li><a href="https://www.youtube.com/watch?v=bygfbJhBPi0">The Bloodening</a></li>
+        <li><a href="https://www.youtube.com/watch?v=kD5erxwy0vY">Rabid Racers</a></li>
+        <li><a href="https://www.youtube.com/watch?v=-8QyaQrEbNs">Scurvy</a></li>
+        <li><a href="https://www.youtube.com/watch?v=-BHlsEPcJto">Rerilla Tanks</a></li>
+        <li><a href="https://www.youtube.com/watch?v=_O61F6eO5oI">Crushing Maniac</a></li>
+        <li><a href="https://www.youtube.com/watch?v=RzQGOUZhFEU">Level design</a></li>
+      </ul>
+      <dl class="facts"><div><dt>GVE showcase</dt><dd>3rd collaborative, 5th programming</dd></div></dl>
+    </div>
+  </section>
+
+  <section class="ch" id="ch-2" data-label="2020">
+    <div class="card">
+      <h2><span class="year">2020</span>Four years of VR at Remio</h2>
+      <p class="lead">Unity worlds for Meta Quest, for 100k+ monthly players.</p>
+      <dl class="facts">
+        <div><dt>Meta Store</dt><dd>15+ VR experiences</dd></div>
+        <div><dt>Loading</dt><dd>Cut by 25%</dd></div>
+        <div><dt>Live ops</dt><dd>Monthly, 2020 to 2025</dd></div>
+      </dl>
+      <p class="links"><a href="https://www.meta.com/experiences/remio/5120897861344596/">Remio</a> <a href="https://www.meta.com/experiences/animal-blocks/26317184997880598/">Animal Blocks</a></p>
+    </div>
+  </section>
+
+  <section class="ch" id="ch-3" data-label="2025">
+    <div class="card">
+      <h2><span class="year">2025</span>NFL Universe Football on Roblox</h2>
+      <p class="lead">Lua and Luau at Voldex: gameplay, UI, live events and the store.</p>
+      <dl class="facts"><div><dt>Daily players</dt><dd>400K+</dd></div><div><dt>Format</dt><dd>6v6, all 32 teams</dd></div></dl>
+      <p class="links"><a href="https://www.roblox.com/games/184199275">Play on Roblox</a></p>
+    </div>
+  </section>
+
+  <section class="ch" id="ch-4" data-label="TableSide">
+    <div class="card">
+      <h2><span class="year">2026</span>TableSide, dishes in 3D</h2>
+      <p class="lead">My company: phone photos of a dish become an AR menu in about ten minutes.</p>
+      <dl class="facts">
+        <div><dt>Dishes</dt><dd>130+ modelled</dd></div>
+        <div><dt>Brands</dt><dd>5+ restaurants</dd></div>
+        <div><dt>Scans</dt><dd>4,000 in 4 weeks</dd></div>
+      </dl>
+      <p class="links"><a href="https://tableside.pk/">tableside.pk</a></p>
+    </div>
+  </section>
+
+  <section class="ch" id="ch-5" data-label="Valar">
+    <div class="card">
+      <h2><span class="year">2026</span>Valar and a DGX Spark lab</h2>
+      <p class="lead">An AI firewall between a company and its LLM providers. Red packets are secrets: watch the wall stop them.</p>
+      <dl class="facts">
+        <div><dt>Detection</dt><dd>94% recall, 96% precision</dd></div>
+        <div><dt>Latency</dt><dd>+7 ms at p95</dd></div>
+        <div><dt>Lab</dt><dd>DGX Spark, 128 GB</dd></div>
+      </dl>
+      <p class="links"><a href="https://valar.digital/">valar.digital</a></p>
+    </div>
+  </section>
+
+  <section class="ch" id="ch-6" data-label="Next">
+    <div class="card">
+      <h2>Next, on the bench</h2>
+      <p class="lead">Prototypes I am building toward launch.</p>
+      <dl class="facts">
+        <div><dt>Ustaad</dt><dd>O-Level Physics, 12 min a day</dd></div>
+        <div><dt>Lime</dt><dd>Holdings and dividends, PSX</dd></div>
+        <div><dt>Sudoku</dt><dd>Graded by technique, no ads</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="ch" id="ch-7" data-label="Hire">
+    <div class="card card--hero">
+      <h2>Games CV or AI CV</h2>
+      <p class="lead">Same seven years, told for who is hiring.</p>
+      <p class="actions">
+        <a class="btn btn--primary" href="../cv/Jehanzeb-Ali-CV-Games.pdf" download>Games CV</a>
+        <a class="btn" href="../cv/Jehanzeb-Ali-CV-AI.pdf" download>AI CV</a>
+      </p>
+      <p class="links"><a href="mailto:jehanzebali111@gmail.com">jehanzebali111@gmail.com</a> <a href="https://www.linkedin.com/in/jehanzeb-ali-87b875187/">LinkedIn</a> <a href="../">Classic site</a></p>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
