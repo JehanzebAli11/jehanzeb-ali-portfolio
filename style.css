@@ -40,6 +40,7 @@ small, .caption, figcaption { font-size: var(--text-sm); color: var(--color-mute
 .banner { height: var(--banner-h); background: var(--color-paper-2); border-bottom: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); }
 .banner .container { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); }
 .banner p { color: var(--color-ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.banner__links { display: flex; gap: var(--space-lg); flex-shrink: 0; white-space: nowrap; }
 .bar { position: sticky; top: 0; z-index: var(--z-sticky-nav); height: var(--bar-h); background: color-mix(in oklab, var(--color-paper) 92%, transparent); border-bottom: var(--rule-hair) solid var(--color-rule); transition: transform var(--dur-long) var(--ease-out); }
 .bar.is-hidden { transform: translateY(-100%); }
 .bar .container { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); }
