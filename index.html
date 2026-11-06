@@ -193,45 +193,70 @@
   </div>
 </section>
 
-<section class="stage" id="valar" aria-labelledby="valar-title">
+<section class="stage valar" id="valar" aria-labelledby="valar-title">
   <div class="container">
     <div class="head">
-      <h2 id="valar-title"><span class="year">2026</span>Valar and a DGX Spark lab</h2>
-      <p class="lead">An AI firewall between a company and its LLM providers. Try a policy.</p>
+      <h2 id="valar-title"><span class="year">2026</span>Valar, a firewall for AI</h2>
+      <p class="lead">A self-hosted gateway between a company's apps and any LLM. Sensitive data is redacted or blocked before a prompt leaves the network.</p>
+    </div>
+    <figure class="live valar-reel" data-loop style="margin:0">
+      <a class="print" href="https://www.valar.digital/">
+        <div class="frame"><video muted loop playsinline preload="metadata" poster="media/valar.jpg" width="1280" height="720" aria-label="Valar walkthrough: an HR prompt with a CNIC and phone number is redacted before the model sees it, then the risk dashboard, an audit record and a policy pack"><source src="media/valar.mp4" type="video/mp4"></video></div>
+        <figcaption><span>Redact, block, audit. Built April to July 2026.</span></figcaption>
+      </a>
+      <button class="loop-toggle" type="button" data-loop-toggle>Pause</button>
+    </figure>
+    <ol class="points">
+      <li><h3>One base URL</h3><p>OpenAI-compatible. Apps switch to Valar by changing one URL, with no SDK or code changes.</p></li>
+      <li><h3>Reversible redaction</h3><p>Values become typed placeholders like <code>[REDACTED:pii.cnic:1]</code> and are restored for the user afterwards. The model never sees them.</p></li>
+      <li><h3>Deterministic policies</h3><p>Versioned YAML policy packs decide observe, alert, redact or block. No second LLM, so every decision is explainable to compliance.</p></li>
+    </ol>
+    <div class="grid pair">
+      <a class="print" href="https://www.valar.digital/">
+        <div class="frame"><img src="media/valar-risk.jpg" width="1280" height="720" alt="Valar risk dashboard: findings by type and the riskiest apps" loading="lazy"></div>
+        <figcaption><span>Live risk across every app.</span></figcaption>
+      </a>
+      <a class="print" href="https://www.valar.digital/">
+        <div class="frame"><img src="media/valar-audit.jpg" width="1280" height="720" alt="Valar audit record: request metadata, a blocked risk decision and masked snippets" loading="lazy"></div>
+        <figcaption><span>Every decision explained, with no raw prompt kept.</span></figcaption>
+      </a>
     </div>
     <div class="console" data-slot="valar-console" data-kind="product" data-alt="A screenshot of the Valar dashboard showing a redacted request">
       <div class="console__bar">
         <fieldset class="seg" data-policy>
           <legend>Policy for secrets and CNIC numbers</legend>
           <input type="radio" name="policy" id="p-observe" value="observe"><label for="p-observe">Observe</label>
+          <input type="radio" name="policy" id="p-alert" value="alert"><label for="p-alert">Alert</label>
           <input type="radio" name="policy" id="p-redact" value="redact" checked><label for="p-redact">Redact</label>
           <input type="radio" name="policy" id="p-block" value="block"><label for="p-block">Block</label>
-          <input type="radio" name="policy" id="p-approve" value="approve"><label for="p-approve">Ask approval</label>
         </fieldset>
-        <p>Sample request, English and Roman Urdu</p>
+        <p>Try a policy on a sample request, English and Roman Urdu</p>
       </div>
       <div class="console__panes">
         <div class="pane">
           <h3>Sent by an employee</h3>
           <p class="prompt">Is customer ka refund check karo. CNIC <span class="hit">42101-1234567-1</span>, use key <span class="hit">sk-example-9f2c</span> on billing.example.com</p>
-          <p class="verdict">2 findings: CNIC, API key</p>
+          <p class="verdict">2 findings: pii.cnic, secret.openai_key</p>
         </div>
         <div class="pane" aria-live="polite">
           <h3>Forwarded to the model</h3>
-          <p class="prompt" data-out>Is customer ka refund check karo. CNIC <span class="tag">[CNIC]</span>, use key <span class="tag">[SECRET]</span> on billing.example.com</p>
-          <p class="verdict" data-verdict>Redacted. The audit log keeps metadata only, never the prompt.</p>
+          <p class="prompt" data-out>Is customer ka refund check karo. CNIC <span class="tag">[REDACTED:pii.cnic:1]</span>, use key <span class="tag">[REDACTED:secret.openai_key:1]</span> on billing.example.com</p>
+          <p class="verdict" data-verdict>Redacted. The reply comes back with the real values restored. The audit log keeps metadata only.</p>
         </div>
       </div>
     </div>
   </div>
   <div class="container sheet">
     <dl>
-      <div class="row"><dt>Detection</dt><dd>94% recall, 96% precision, +7 ms at p95</dd></div>
-      <div class="row"><dt>Lab hardware</dt><dd>NVIDIA DGX Spark, 128 GB unified memory</dd></div>
-      <div class="row"><dt>Fine-tuning</dt><dd>LoRA and QLoRA with PyTorch, PEFT and TRL</dd></div>
-      <div class="row"><dt>Serving</dt><dd>Quantized local models behind Valar on-prem</dd></div>
+      <div class="row"><dt>Detection</dt><dd>94% recall, 96% precision on a 400-prompt golden set</dd></div>
+      <div class="row"><dt>Latency</dt><dd>+7 ms at p95 before the model call</dd></div>
+      <div class="row"><dt>Detectors</dt><dd>20+ for PII, secrets and prompt injection</dd></div>
+      <div class="row"><dt>Security</dt><dd>Keys encrypted at rest, Argon2, metadata-only logs, every query scoped to an org</dd></div>
+      <div class="row"><dt>Tests</dt><dd>216, including proof raw secrets never reach the database</dd></div>
+      <div class="row"><dt>Stack</dt><dd>FastAPI, Postgres, Next.js, Docker, OpenRouter and LiteLLM</dd></div>
+      <div class="row"><dt>Lab</dt><dd>NVIDIA DGX Spark: LoRA and QLoRA fine-tuning, quantized local models behind Valar</dd></div>
     </dl>
-    <p class="caption" style="margin-top: var(--space-md)"><a class="link" href="https://valar.digital/">valar.digital</a></p>
+    <p class="caption" style="margin-top: var(--space-md)"><a class="link" href="https://www.valar.digital/">valar.digital</a></p>
   </div>
 </section>
 
@@ -353,10 +378,10 @@
   // valar policy sample
   const out = document.querySelector('[data-out]'), verdict = document.querySelector('[data-verdict]');
   const states = {
-    observe: ['Is customer ka refund check karo. CNIC 42101-1234567-1, use key sk-example-9f2c on billing.example.com', 'Forwarded as sent. Both findings logged for review.'],
-    redact: ['Is customer ka refund check karo. CNIC <span class="tag">[CNIC]</span>, use key <span class="tag">[SECRET]</span> on billing.example.com', 'Redacted. The audit log keeps metadata only, never the prompt.'],
-    block: ['<span class="muted">Nothing forwarded.</span>', 'Blocked. The employee sees why, and security gets an alert.'],
-    approve: ['<span class="muted">Held for approval.</span>', 'Waiting for a reviewer. It goes through only once approved.']
+    observe: ['Is customer ka refund check karo. CNIC 42101-1234567-1, use key sk-example-9f2c on billing.example.com', 'Forwarded as sent. Both findings are logged for review.'],
+    alert: ['Is customer ka refund check karo. CNIC 42101-1234567-1, use key sk-example-9f2c on billing.example.com', 'Forwarded, and security gets an alert with the finding types, never the values.'],
+    redact: ['Is customer ka refund check karo. CNIC <span class="tag">[REDACTED:pii.cnic:1]</span>, use key <span class="tag">[REDACTED:secret.openai_key:1]</span> on billing.example.com', 'Redacted. The reply comes back with the real values restored. The audit log keeps metadata only.'],
+    block: ['<span class="muted">Nothing forwarded.</span>', 'Blocked before the provider is called. The employee sees why.']
   };
   document.querySelectorAll('[data-policy] input').forEach((r) => r.addEventListener('change', () => { const [h, v] = states[r.value]; out.innerHTML = h; verdict.textContent = v; }));
   // cv switcher

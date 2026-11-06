@@ -339,14 +339,14 @@ scene.add(world);
   orb.add(mesh(new THREE.IcosahedronGeometry(0.4, 0), glow(0x7d93ff, 2)));
   orb.position.set(2.2, 1.6, 0); float(orb, 0.15, 1);
   tickers.push((t) => { orb.rotation.y = t * 0.6; orb.rotation.x = t * 0.3; });
-  makeBoing(orb, 'https://valar.digital/');
+  makeBoing(orb, 'https://www.valar.digital/');
   g.add(orb);
   // DGX box
   const dgx = new THREE.Group();
   dgx.add(mesh(new THREE.BoxGeometry(0.9, 0.35, 0.9), mat(0xb08d57, { metalness: 0.7, roughness: 0.35 })));
   for (let i = 0; i < 5; i++) dgx.add(mesh(new THREE.BoxGeometry(0.7, 0.02, 0.04), glow(C.green, 1.5), 0, 0.12 - i * 0.05, 0.46));
   dgx.position.set(2.4, 0.2, 1.8); dgx.rotation.y = -0.4;
-  makeBoing(dgx, 'https://valar.digital/'); g.add(dgx);
+  makeBoing(dgx, 'https://www.valar.digital/'); g.add(dgx);
   // packets
   const packetGeo = new THREE.OctahedronGeometry(0.1, 0);
   const pm = { ok: glow(C.ink, 1.5), bad: glow(C.red, 2.5) };
@@ -377,7 +377,10 @@ scene.add(world);
       p.m.rotation.y += dt * 4;
     }
   });
-  const sign = label('Valar', 'AI firewall', { size: 150 }); sign.position.set(-1.6, 3.4, -1.2); float(sign, 0.12, 0.8); g.add(sign);
+  const sign = label('Valar', 'AI firewall', { size: 150 }); sign.position.set(-2.9, 3.0, -1.6); float(sign, 0.12, 0.8); g.add(sign);
+  // the walkthrough video; the island is turned 0.75 rad, so the screen turns back to face the camera
+  const sc = screen(3.6, 2.025, '../media/valar.jpg', '../media/valar.mp4', 'https://www.valar.digital/');
+  sc.position.set(1.95, 4.1, -0.65); sc.rotation.y = -1.05; float(sc, 0.12, 0.7); g.add(sc);
   STOPS.push({ center: c });
 }
 

@@ -70,6 +70,13 @@ Serve the folder; don't open the file directly (ES modules and the import map ne
 - Headless Chromium (software WebGL) at 1440×900: all 8 chapters screenshotted. At 390×844: chapters 0, 3 and 5. No console errors.
 - Not tested on real devices: iOS Safari, Android, or a low-end GPU. Check those first, especially video textures on iOS and scroll smoothness.
 
+## Valar content (added 2026-11-06)
+
+- Media: `media/valar.mp4` (30 s walkthrough, re-encoded to 720p with no audio, 1.2 MB) and stills `valar.jpg` (poster), `valar-risk.jpg` and `valar-audit.jpg`, taken from that video.
+- Classic site, `#valar` section: the video, three points (one base URL, reversible redaction, deterministic policies), two stills, the policy console (observe / alert / redact / block, using the real `[REDACTED:type:n]` placeholder format), and a facts sheet. The console text lives in the `states` object in the inline script at the bottom of `index.html`.
+- 3D site: the Valar island now has the video on a screen, and its card has the key numbers.
+- Source copy for Valar (CV bullets, one-liner, tech line) came from Jehanzeb. If the numbers change (94% recall, 96% precision, +7 ms p95, 20+ detectors, 216 tests), update both `index.html` and `3d/index.html`.
+
 ## Known rough edges and next steps
 
 - The Sudoku board and the small labels under the sprites ("physics", "PSX") are hard to read from the camera distance.
