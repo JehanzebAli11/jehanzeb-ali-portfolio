@@ -19,17 +19,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/((?!media/|fonts/|cv/|favicon\\.svg).*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "ai.jehanzeb.xyz"
-        }
-      ],
-      "destination": "/ai/$1"
-    }
   ]
 }
