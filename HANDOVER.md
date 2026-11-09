@@ -80,7 +80,7 @@ Serve the folder; don't open the file directly (ES modules and the import map ne
 ## AI site (ai.jehanzeb.xyz), added 2026-11-09
 
 - Lives in `ai/` (`index.html`, `style.css`, `tokens.css`, `base.css`). It is fully separate from the classic and 3D sites, built with the Hallmark design skill (theme Lumen, shape Stat-Led). The stamp at the top of `ai/style.css` records every design decision and waiver.
-- Served at `jehanzeb.xyz/ai/`. On `ai.jehanzeb.xyz`, a host rewrite in `vercel.json` maps every path except `/media`, `/fonts`, `/cv` and the favicon to `/ai/`. **Setup needed once:** in Vercel → the project → Settings → Domains, add `ai.jehanzeb.xyz` (Vercel shows the DNS record to add, usually a CNAME to `cname.vercel-dns.com`).
+- Served at `jehanzeb.xyz/ai/`. On `ai.jehanzeb.xyz`, `middleware.js` (Vercel Routing Middleware) rewrites every path except `/ai/`, `/media`, `/fonts`, `/cv` and the favicon to `/ai/…`. A `vercel.json` rewrite cannot do this, because Vercel serves the root `index.html` and `style.css` before applying rewrites. Any other host passes through untouched. **Setup needed once:** in Vercel → the project → Settings → Domains, add `ai.jehanzeb.xyz` (Vercel shows the DNS record to add, usually a CNAME to `cname.vercel-dns.com`).
 - Content is from the Applied AI CV v5 (`cv/Jehanzeb-Ali-CV-Applied-AI.pdf`, the file the AI site's download buttons serve). The classic site still links the older `cv/Jehanzeb-Ali-CV-AI.pdf`.
 - Hero: the English / Roman Urdu switch (Prompt Guard 2: 194/400 vs 46/399). The numbers live in the `rates` object in the inline script and in the markup.
 - ⌘K / Ctrl+K opens a command palette (the `<dialog data-palette>` list). Add a link by adding an `<li>`.
