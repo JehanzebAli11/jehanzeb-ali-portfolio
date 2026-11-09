@@ -1,0 +1,55 @@
+[
+ {
+  "shape": "Stat-Led",
+  "theme": "lumen",
+  "axes": "dark/roman-serif/warm",
+  "hero": "Corridor",
+  "nav": "search-led bar with command palette",
+  "footer": "statement",
+  "imagery": "product recording (Valar), diagrams of real systems",
+  "photos": [],
+  "entry": "ai.jehanzeb.xyz",
+  "fingerprint": "stat-led/lumen/corridor/search-led/statement/product",
+  "sections": [
+   "hero instrument switch",
+   "compare pair + figures",
+   "table",
+   "diagram band",
+   "showcase video",
+   "index table",
+   "statement close"
+  ],
+  "signature": "english and roman urdu switch on the hero figure, 48.5% against 11.5%",
+  "waived": [
+   "38iii",
+   "47c"
+  ],
+  "prompt": "Applied AI engineer portfolio for hiring",
+  "date": "2026-11-09",
+  "mode": "build"
+ },
+ {
+  "shape": "Narrative Workflow",
+  "theme": "darkroom",
+  "axes": "dark/display-condensed/chromatic-amber",
+  "hero": "Ledge",
+  "nav": "banner over a retracting bar",
+  "footer": "mast",
+  "imagery": "user footage",
+  "entry": "jehanzeb.xyz classic",
+  "sections": [
+   "hero",
+   "rail",
+   "showcase",
+   "bento",
+   "pinned",
+   "console",
+   "index",
+   "cv"
+  ],
+  "signature": "showreel in colour above a print-black archive",
+  "prompt": "game developer and AI engineer portfolio",
+  "date": "2026-11-09",
+  "mode": "build"
+ }
+]

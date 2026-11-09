@@ -77,6 +77,16 @@ Serve the folder; don't open the file directly (ES modules and the import map ne
 - 3D site: the Valar island now has the video on a screen, and its card has the key numbers.
 - Source copy for Valar (CV bullets, one-liner, tech line) came from Jehanzeb. If the numbers change (94% recall, 96% precision, +7 ms p95, 20+ detectors, 216 tests), update both `index.html` and `3d/index.html`.
 
+## AI site (ai.jehanzeb.xyz), added 2026-11-09
+
+- Lives in `ai/` (`index.html`, `style.css`, `tokens.css`, `base.css`). It is fully separate from the classic and 3D sites, built with the Hallmark design skill (theme Lumen, shape Stat-Led). The stamp at the top of `ai/style.css` records every design decision and waiver.
+- Served at `jehanzeb.xyz/ai/`. On `ai.jehanzeb.xyz`, a host rewrite in `vercel.json` maps every path except `/media`, `/fonts`, `/cv` and the favicon to `/ai/`. **Setup needed once:** in Vercel → the project → Settings → Domains, add `ai.jehanzeb.xyz` (Vercel shows the DNS record to add, usually a CNAME to `cname.vercel-dns.com`).
+- Content is from the Applied AI CV v5 (`cv/Jehanzeb-Ali-CV-Applied-AI.pdf`, the file the AI site's download buttons serve). The classic site still links the older `cv/Jehanzeb-Ali-CV-AI.pdf`.
+- Hero: the English / Roman Urdu switch (Prompt Guard 2: 194/400 vs 46/399). The numbers live in the `rates` object in the inline script and in the markup.
+- ⌘K / Ctrl+K opens a command palette (the `<dialog data-palette>` list). Add a link by adding an `<li>`.
+- Video: `media/valar-product.mp4` is the walkthrough cropped to the product screen and trimmed to 21 s.
+- The two sample attack sentences in "one attack, two scripts" were written for the page and labelled as samples. Swap in a real pair from the eval set if you prefer.
+
 ## Known rough edges and next steps
 
 - The Sudoku board and the small labels under the sprites ("physics", "PSX") are hard to read from the camera distance.
