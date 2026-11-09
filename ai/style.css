@@ -7,6 +7,7 @@
 /* Hallmark · dismissed 58 · the window at y 2700 holds the Worldsmith loop diagram, whose four step titles and readouts count as prose; the prose itself is two lines */
 /* Hallmark · dismissed F7 · the pills are the command button, the segmented control's track and its key cap, all controls, plus the skip link */
 /* Hallmark · waive 47c · the blueprint grid sits only inside the hero instrument well, under a figure and two readouts · Lumen names the blueprint grid inside one well as its texture */
+/* Hallmark · waive 82 · the hero grid shows one square per attack, lit if caught · it is the chart of 194 / 400 attacks caught against 46 / 399, marks differ in colour */
 /* Hallmark · waive 38iii · the rose verb "miss" in the hero head only · Lumen names the one rose verb in the hero as its signature */
 @import url("./tokens.css");
 @import url("./base.css");
@@ -42,7 +43,7 @@ a:not(.btn):hover { text-decoration-color: var(--color-accent); }
 .cmd:active { transform: translateY(1px); }
 .cmd:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 .cmd kbd { text-transform: none; padding: var(--space-2xs) var(--space-xs); border-radius: var(--radius-pill); background: var(--color-paper); font: 400 0.75rem/1 var(--font-outlier); color: var(--color-ink-2); }
-.bar__mail { justify-self: end; font-size: var(--text-sm); white-space: nowrap; text-decoration: none; padding-block: var(--space-sm); }
+.bar__mail { font-size: var(--text-sm); white-space: nowrap; text-decoration: none; padding-block: var(--space-sm); }
 .bar__mail:hover { text-decoration: underline; text-decoration-color: var(--color-accent); }
 
 /* hero: corridor */
@@ -63,15 +64,6 @@ a:not(.btn):hover { text-decoration-color: var(--color-accent); }
 .fig { font: 400 clamp(5.5rem, 11vw, 10rem)/0.9 var(--font-display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; padding-block: var(--space-sm) 0; }
 .fig__unit { font: 400 0.3em/1 var(--font-outlier); color: var(--color-accent); letter-spacing: 0; margin-left: 0.1em; vertical-align: 1.1em; }
 .instrument__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; gap: var(--space-xl); }
-.bars { margin: 0; display: grid; gap: var(--space-md); padding-bottom: var(--space-sm); }
-.bars__row { display: grid; gap: var(--space-2xs); color: var(--color-muted); transition: color var(--dur-short) var(--ease-out); }
-.bars__row dt { font-size: var(--text-sm); }
-.bars__row dd { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) 3.5ch; align-items: center; gap: var(--space-sm); }
-.bars__track { height: 8px; border-radius: var(--radius-pill); background: var(--color-paper-3); overflow: hidden; }
-.bars__fill { display: block; height: 100%; width: 100%; transform: scaleX(var(--v)); transform-origin: left; border-radius: var(--radius-pill); background: var(--color-ink-2); opacity: 0.5; transition: opacity var(--dur-short) var(--ease-out); }
-.bars__row.is-on { color: var(--color-ink); }
-.bars__row.is-on .bars__fill { background: var(--color-accent); opacity: 1; }
-.bars .readout { text-align: right; color: inherit; }
 .instrument__foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-xs) var(--space-lg); padding-top: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); }
 .instrument .readout span:last-child { color: var(--color-muted); }
 .hero h1 { font-size: clamp(3rem, 5.6vw + 0.5rem, 7rem); line-height: 0.95; max-width: 16ch; }
@@ -204,7 +196,6 @@ html:not(.js) .reel__toggle { display: none; }
   .instrument { gap: var(--space-sm); }
   .instrument__foot span:last-child { display: none; }
   .fig { font-size: 5rem; padding-top: 0; }
-  .bars { gap: var(--space-xs); padding-bottom: 0; }
   .hero { padding-block: var(--space-xl) var(--space-2xl); }
   .hero__col { gap: var(--space-md); }
   .seg legend { width: 100%; margin-bottom: var(--space-xs); }
@@ -212,5 +203,5 @@ html:not(.js) .reel__toggle { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .verb::after { animation: none; }
-  .btn, .cmd, .seg label, .bars__row, .bars__fill { transition: none; }
+  .btn, .cmd, .seg label { transition: none; }
 }
