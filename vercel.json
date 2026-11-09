@@ -1,7 +1,35 @@
 {
   "cleanUrls": true,
   "headers": [
-    { "source": "/media/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] },
-    { "source": "/fonts/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] }
+    {
+      "source": "/media/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!media/|fonts/|cv/|favicon\\.svg).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "ai.jehanzeb.xyz"
+        }
+      ],
+      "destination": "/ai/$1"
+    }
   ]
 }
